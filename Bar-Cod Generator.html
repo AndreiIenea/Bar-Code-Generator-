@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator de Cod de Bare Dinamic</title>
+    <style>
+        body {
+            background-color: #003;
+            display: flex;
+            justify-content: center; /* Aici centrăm elementele pe orizontală */
+            align-items: center; /* Aici centrăm elementele pe verticală */
+            height: 100vh; /* Asigurăm că întreaga înălțime a ecranului este ocupată */
+            margin: 0; /* Eliminăm marginile implicite ale corpului paginii */
+            flex-direction: column; /* Elementele sunt așezate vertical */
+        }
+    </style>
+</head>
+<body>
+    <h2 style="color: white;">Introdu textul</h2>
+    
+    <input type="text" id="inputText" placeholder="Introdu textul aici">
+    <button onclick="generateBarcode()">Generează Codul</button>
+    
+    <h3 style="color: white;">Codul de Bare Generat:</h3>
+    <img id="barcodeImage" src="" alt="Codul de bare va apărea aici">
+    
+    <script>
+        function generateBarcode() {
+            var inputData = document.getElementById('inputText').value;
+            var src = "https://barcode.tec-it.com/barcode.ashx?data=" + encodeURIComponent(inputData) + "&code=Code128";
+            document.getElementById('barcodeImage').src = src;
+        }
+    </script>
+</body>
+</html>
